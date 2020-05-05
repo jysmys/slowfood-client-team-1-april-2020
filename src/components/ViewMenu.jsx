@@ -14,10 +14,10 @@ function ViewMenu() {
       <Table.Row>
         <Table.Cell>Pizza</Table.Cell>
         <Table.Cell>Price</Table.Cell>
-        <Table.Cell><button>-</button></Table.Cell>
-        <Table.Cell>0</Table.Cell>
-        <Table.Cell><button>+</button></Table.Cell>
-        <Table.Cell><button>Add</button></Table.Cell>
+        <Table.Cell><button id='minus'>-</button></Table.Cell>
+        <Table.Cell id='numberOfItems'>0</Table.Cell>
+        <Table.Cell><button id='plus'>+</button></Table.Cell>
+        <Table.Cell><button id='add'>Add</button></Table.Cell>
         </Table.Row>
         </Table.Body>
       </Table>
