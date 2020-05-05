@@ -12,7 +12,6 @@ class ViewMenu extends Component {
   }
   async getViewMenu() {
     let result = await getMenu();
-    console.log(result.data);
     this.setState({ menu: result.data.products });
   }
   render() {
@@ -35,19 +34,14 @@ class ViewMenu extends Component {
               <button id="add">Add</button>
             </Table.Cell>
           </Table.Row>
-        );
-      });
-    }
+        )
+      }); 
+    } else {menu = <Table.Row id="menumessage">"Nothing on the menu at the moment"</Table.Row>}
 
-    return (
+    return(
       <div>
         <h1>Menu</h1>
         <Table unstackable>
-          {/* <Table.Header>
-            <Table.Row>
-              <Table.HeaderCell id="starters">Starters</Table.HeaderCell>
-            </Table.Row>
-          </Table.Header> */}
           <Table.Body>{menu}</Table.Body>
         </Table>
       </div>
