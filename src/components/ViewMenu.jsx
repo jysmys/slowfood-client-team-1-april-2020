@@ -1,7 +1,46 @@
 import React from 'react'
 import { Table } from 'semantic-ui-react'
+import {getMenu} from '../modules/menu'
+import { Component } from 'react'
 
-function ViewMenu() {
+class ViewMenu extends Component {
+  state = {
+    starters: [],
+    main:[],
+    dessert:[],
+    beverage:[],
+  };
+  componentDidMount () {
+    this.getViewMenu();
+  }
+  async getViewMenu(){
+    let starters = []
+    let main = []
+    let dessert = []
+    let beverage = []
+
+    let result= await getMenu()
+    result.data.map((item) => {
+      switch (item.category) {
+          case "starters":
+            starters.push(item)
+          break;
+          case "mains":
+            mains.push(item)
+          break;
+          case "dessert":
+            dessert.push(item)
+          break;
+          case "beverage":
+            beverage.push(item)
+          break;
+          default:
+          break;
+      }
+    })
+  }
+render () {
+
   return (
     <div>
       <Table unstackable>
@@ -23,6 +62,7 @@ function ViewMenu() {
       </Table>
     </div>
   )
+}
 }
 
 export default ViewMenu
