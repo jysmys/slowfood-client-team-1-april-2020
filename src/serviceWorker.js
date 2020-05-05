@@ -18,6 +18,7 @@ export function register(config) {
 
       if (isLocalhost) {
         checkValidServiceWorker(swUrl, config);
+        checkValidServiceWorker(swUrl, config);
 
         navigator.serviceWorker.ready.then(() => {
           console.log(

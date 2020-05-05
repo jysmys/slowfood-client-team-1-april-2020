@@ -1,0 +1,10 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "title": "pizza",
+      "description": "best pizza in town",
+      "price": 99
+    }
+  ]
+}
