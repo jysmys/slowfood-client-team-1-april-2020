@@ -34,11 +34,17 @@ class ViewMenu extends Component {
               <button id="add">Add</button>
             </Table.Cell>
           </Table.Row>
-        )
-      }); 
-    } else {menu = <Table.Row id="menumessage">"Nothing on the menu at the moment"</Table.Row>}
+        );
+      });
+    } else {
+      menu = (
+        <Table.Row id="menumessage">
+          Nothing on the menu at the moment
+        </Table.Row>
+      );
+    }
 
-    return(
+    return (
       <div>
         <h1>Menu</h1>
         <Table unstackable>

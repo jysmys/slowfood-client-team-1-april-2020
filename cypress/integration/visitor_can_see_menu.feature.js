@@ -1,7 +1,6 @@
 describe("User can see menu", () => {
   beforeEach(() => {
     cy.server();
-    cy.visit("http://localhost:3001/");
   });
 
   it("visitor can see menu", () => {
@@ -10,6 +9,7 @@ describe("User can see menu", () => {
       url: "http://localhost:3001/api/v1/products",
       response: "fixture:products.json",
     });
+    cy.visit("http://localhost:3001/");
     cy.get("button#add").should("be.visible");
     cy.get("button#minus").should("be.visible");
     cy.get("td#numberOfItems").should("be.visible");
@@ -21,9 +21,9 @@ describe("User can see menu", () => {
     cy.route({
       method: "GET",
       url: "http://localhost:3001/api/v1/products",
-      response: {data: {}},
+      response: { data: {} },
     });
-    cy.contains("Nothing on the menu at the moment")
-  })
-
+    cy.visit("http://localhost:3001/");
+    cy.contains("Nothing on the menu at the moment");
+  });
 });
