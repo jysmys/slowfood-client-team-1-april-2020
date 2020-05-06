@@ -6,7 +6,6 @@ import { Component } from "react";
 class Menu extends Component {
   state = {
     menu: [],
-    message: "",
   };
   componentDidMount() {
     this.getViewMenu();
@@ -19,20 +18,10 @@ class Menu extends Component {
     let menu;
     menu = this.state.menu.map((product) => {
       return (
-        <Table.Row key={product.id} id={product.id}>
+        <Table.Row key={product.id} id={"product-" + product.id}>
           <Table.Cell id={product.title}>{product.title}</Table.Cell>
           <Table.Cell>{product.description}</Table.Cell>
           <Table.Cell id="price">{product.price} $</Table.Cell>
-          <Table.Cell>
-            <button id="minus">-</button>
-          </Table.Cell>
-          <Table.Cell id="numberOfItems">0</Table.Cell>
-          <Table.Cell>
-            <button id="plus">+</button>
-          </Table.Cell>
-          <Table.Cell>
-            <button id="add">Add</button>
-          </Table.Cell>
         </Table.Row>
       );
     });
