@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const getMenu = async () => {
-  const response = await axios.get("/api/v1/products");
+  const response = await axios.get("/products");
   return response;
 };
 export { getMenu };
