@@ -4,7 +4,7 @@ import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import axios from "axios";
 
-axios.default.baseURL = "http://localhost:3002/api/v1";
+axios.default.baseURL = "https://turtle-food-fast.herokuapp.com/api/v1";
 ReactDOM.render(<App />, document.getElementById("root"));
 
 serviceWorker.unregister();
