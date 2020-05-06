@@ -19,10 +19,10 @@ class Menu extends Component {
     let menu;
     menu = this.state.menu.map((product) => {
       return (
-        <Table.Row key={product.id}>
-          <Table.Cell>{product.title}</Table.Cell>
+        <Table.Row key={product.id} id={product.id}>
+          <Table.Cell id={product.title}>{product.title}</Table.Cell>
           <Table.Cell>{product.description}</Table.Cell>
-          <Table.Cell>{product.price} $</Table.Cell>
+          <Table.Cell id="price">{product.price} $</Table.Cell>
           <Table.Cell>
             <button id="minus">-</button>
           </Table.Cell>

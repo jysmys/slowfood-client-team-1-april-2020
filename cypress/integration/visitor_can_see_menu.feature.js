@@ -1,3 +1,5 @@
+import { getByAltText } from "@testing-library/react";
+
 describe("User can see menu", () => {
   beforeEach(() => {
     cy.server();
@@ -10,6 +12,8 @@ describe("User can see menu", () => {
       response: "fixture:products.json",
     });
     cy.visit("http://localhost:3001/");
-    cy.contains("pizza");
+    cy.get("tr#1").contains("1");
+    cy.get("td#pizza").should("contain", "pizza");
+    cy.get("td#price").should("contain", "6");
   });
 });
