@@ -7,18 +7,21 @@ import Axios from "axios";
 class Menu extends Component {
   state = {
     menu: [],
+    message: "",
   };
 
   async componentDidMount() {
     let result = await getMenu();
     this.setState({ menu: result.data.products });
   }
-  addToOrder = (event) => {
+
+  addToOrder = async (event) => {
     let id = event.target.parentElement.dataset.id;
-    let result = await Axios.post("http://localhost:3000/api/orders", {
+    let result = await Axios.post("/orders", {
       id: id
     });
     this.setState({ message: { id: id, message: result.data.message } });
+    debugger
   };
   
   render() {
@@ -37,9 +40,14 @@ class Menu extends Component {
           </Table.Row>
       );
     });
+    let message
+    if (this.state.message) {
+      message = <div>{this.state.message}</div>
+    }
 
     return (
       <div>
+        {message}
         <h1>Menu</h1>
         <Table unstackable>
           <Table.Body>{menu}</Table.Body>
