@@ -2,6 +2,7 @@ import React from "react";
 import { Table } from "semantic-ui-react";
 import { getMenu } from "../modules/requestProducts";
 import { Component } from "react";
+import Axios from "axios";
 
 class Menu extends Component {
   state = {
@@ -13,10 +14,13 @@ class Menu extends Component {
     this.setState({ menu: result.data.products });
   }
   addToOrder = (event) => {
-    
-    let id = event.target.parentElement.dataset.id
-    debugger 
+    let id = event.target.parentElement.dataset.id;
+    let result = await Axios.post("http://localhost:3000/api/orders", {
+      id: id
+    });
+    this.setState({ message: { id: id, message: result.data.message } });
   };
+  
   render() {
     let menu;
     menu = this.state.menu.map((product) => {

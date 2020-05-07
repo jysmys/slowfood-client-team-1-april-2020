@@ -10,37 +10,37 @@ describe('User can add products to order', () => {
   })
 
   it('button is visible', () => {
-    cy.get('#product-1').within(
+    cy.get('#product-1').within(() => {
       cy.get('#add-to-order').should('contain', 'Add to Order')
-    )
+    })
   })
 
   it('and gets a success message', () => {
-    cy.get('#product-1').within(
+    cy.get('#product-1').within(() => {
       cy.get('#add-to-order').click()
-    )
+    })
     cy.get('#success-message').should('contain', 'one pizza was added to your order')
   })
 
   it('and it is displayed in the order', () => {
-    cy.get('#product-1').within(
+    cy.get('#product-1').within(() => {
       cy.get('#add-to-order').click()
-    )
+    })
     cy.get('#cart-tab').click()
     cy.get('#order').should('contain', 'pizza')
   })
 
   it('and the quantity is displayed in the order'), () => {
-    cy.get('#product-1').within(
+    cy.get('#product-1').within(() => {
       cy.get('#add-to-order').click()
-    )
-    cy.get('#product-1').within(
+    })
+    cy.get('#product-1').within(() => {
       cy.get('#add-to-order').click()
-    )
+    })
     cy.get('#cart-tab').click()
-    cy.get('#order').within(
+    cy.get('#order').within(() => {
       cy.get('#quantity').should('contain', '2')
-    )
+    })
   }
 
   it('and an empty cart displays message', () => {
