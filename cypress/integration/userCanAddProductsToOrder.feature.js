@@ -2,11 +2,17 @@ describe('User can add products to order', () => {
   beforeEach(() => {
     cy.server()
     cy.route({
-      method: 'POST',
+      method: 'GET',
       url: 'http://localhost:3000/api/v1/products',
       response: "fixture:products.json",
     })
     cy.visit('/')
+  })
+
+  it('button is visible', () => {
+    cy.get('#product-1').within(
+      cy.get('#add-to-order').should('contain', 'Add to Order')
+    )
   })
 
   it('and gets a success message', () => {

@@ -12,18 +12,25 @@ class Menu extends Component {
     let result = await getMenu();
     this.setState({ menu: result.data.products });
   }
-
+  addToOrder = (event) => {
+    
+    let id = event.target.parentElement.dataset.id
+    debugger 
+  };
   render() {
     let menu;
     menu = this.state.menu.map((product) => {
       return (
-        <Table.Row key={product.id} id={"product-" + product.id}>
+        <Table.Row key={product.id} data-id={product.id} id={"product-" + product.id}>
           <Table.Cell id="product-title">{product.title}</Table.Cell>
           <Table.Cell id="product-description">
             {product.description}
           </Table.Cell>
           <Table.Cell id="product-price">{product.price} $</Table.Cell>
-        </Table.Row>
+             <button onClick={this.addToOrder} id="add-to-order">
+              Add to Order
+            </button>
+          </Table.Row>
       );
     });
 
