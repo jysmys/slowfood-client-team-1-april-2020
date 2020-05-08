@@ -1,5 +1,5 @@
 import React from "react";
-import { Table } from "semantic-ui-react";
+import { Grid, Button, Container } from "semantic-ui-react";
 import { getMenu } from "../modules/requestProducts";
 import { Component } from "react";
 import Axios from "axios";
@@ -28,16 +28,18 @@ class Menu extends Component {
     let menu;
     menu = this.state.menu.map((product) => {
       return (
-        <Table.Row key={product.id} data-id={product.id} id={"product-" + product.id}>
-          <Table.Cell id="product-title">{product.title}</Table.Cell>
-          <Table.Cell id="product-description">
+        <Grid.Row key={product.id} data-id={product.id} id={"product-" + product.id}>
+          <Grid.Column width={4} id="product-title">{product.title}</Grid.Column>
+          <Grid.Column width={6} id="product-description">
             {product.description}
-          </Table.Cell>
-          <Table.Cell id="product-price">{product.price} $</Table.Cell>
-             <button onClick={this.addToOrder} id="add-to-order">
+          </Grid.Column>
+          <Grid.Column width={3} id="product-price">{product.price} $</Grid.Column>
+          <Grid.Column width={3}>
+             <Button onClick={this.addToOrder} id="add-to-order">
               Add to Order
-            </button>
-          </Table.Row>
+            </Button>
+          </Grid.Column>
+        </Grid.Row>
       );
     });
     let message
@@ -46,13 +48,11 @@ class Menu extends Component {
     }
 
     return (
-      <div>
+      <Container>
         {message}
         <h1>Menu</h1>
-        <Table unstackable>
-          <Table.Body>{menu}</Table.Body>
-        </Table>
-      </div>
+        <Grid celled>{menu}</Grid>
+      </Container>
     );
   }
 }
