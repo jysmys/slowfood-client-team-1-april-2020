@@ -18,33 +18,40 @@ class Menu extends Component {
   addToOrder = async (event) => {
     let id = event.target.parentElement.dataset.id;
     let result = await Axios.post("/orders", {
-      id: id
+      id: id,
     });
     this.setState({ message: { id: id, message: result.data.message } });
-    debugger
   };
-  
+
   render() {
     let menu;
     menu = this.state.menu.map((product) => {
       return (
-        <Grid.Row key={product.id} data-id={product.id} id={"product-" + product.id}>
-          <Grid.Column width={4} id="product-title">{product.title}</Grid.Column>
+        <Grid.Row
+          key={product.id}
+          data-id={product.id}
+          id={"product-" + product.id}
+        >
+          <Grid.Column width={4} id="product-title">
+            {product.title}
+          </Grid.Column>
           <Grid.Column width={6} id="product-description">
             {product.description}
           </Grid.Column>
-          <Grid.Column width={3} id="product-price">{product.price} $</Grid.Column>
+          <Grid.Column width={3} id="product-price">
+            {product.price} $
+          </Grid.Column>
           <Grid.Column width={3}>
-             <Button onClick={this.addToOrder} id="add-to-order">
+            <Button onClick={this.addToOrder} id="add-to-order">
               Add to Order
             </Button>
           </Grid.Column>
         </Grid.Row>
       );
     });
-    let message
+    let message;
     if (this.state.message) {
-      message = <div>{this.state.message}</div>
+      message = <p id="success-message">{this.state.message.message}</p>;
     }
 
     return (
