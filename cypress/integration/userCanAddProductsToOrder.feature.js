@@ -1,56 +1,49 @@
-describe("User can add products to order", () => {
+describe("User can add products", () => {
   beforeEach(() => {
     cy.server();
     cy.route({
       method: "GET",
       url: "http://localhost:3000/api/v1/products",
       response: "fixture:products.json",
-    });
+    })
     cy.route({
       method: "POST",
       url: "http://localhost:3000/api/v1/orders",
-      response: { message: "The product was added to your order" },
+      response: "fixture:create_order.json",
     });
     cy.visit("/");
-  });
-
-  it("button is visible", () => {
-    cy.get("#product-1").within(() => {
-      cy.get("#add-to-order").should("contain", "Add to Order");
     });
-  });
+  })
 
-  it("and gets a success message", () => {
-    cy.get("div#product-1").within(() => {
-      cy.get("button#add-to-order").click();
+  describe('to new order', () => {  
+    it("Button is visible", () => {
+      cy.get("#product-1").within(() => {
+        cy.get("#add-to-order").should("contain", "Add to Order");
+      });
     });
-    cy.get("#success-message").contains(`The product was added to your order`);
-  });
+  
+    it("User gets a success message", () => {
+      cy.get("div#product-1").within(() => {
+        cy.get("button#add-to-order").click();
+      });
+      cy.get("#success-message").contains(`The product was added to your order`);
+    });
+  
+    it('The product count in cart updates', () => {
+      cy.get("div#product-1").within(() => {
+        cy.get("button#add-to-order").click();
+      });
+      cy.get("#cart-tab").should("contain", "1")
+    })    
+  })
 
-  // it("and it is displayed in the order", () => {
-  //   cy.get("#product-1").within(() => {
-  //     cy.get("#add-to-order").click();
-  //   });
-  //   cy.get("#cart-tab").click();
-  //   cy.get("#order").should("contain", "pizza");
-  // });
-
-  // it("and the quantity is displayed in the order"),
-  //   () => {
-  //     cy.get("#product-1").within(() => {
-  //       cy.get("#add-to-order").click();
-  //     });
-  //     cy.get("#product-1").within(() => {
-  //       cy.get("#add-to-order").click();
-  //     });
-  //     cy.get("#cart-tab").click();
-  //     cy.get("#order").within(() => {
-  //       cy.get("#quantity").should("contain", "2");
-  //     });
-  //   };
-
-  // it("and an empty cart displays message", () => {
-  //   cy.get("#cart-tab").click();
-  //   cy.get("#order").should("contain", "You have no products in your order");
-  // });
+  describe('to existing order', () => {
+    beforeEach(() => {
+      cy.route({
+        method: "PUT",
+        url: "http://localhost:3000/api/v1/orders/1",
+        response: "fixture:update_order.json"
+      })
+    })
+  })
 });

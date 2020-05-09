@@ -8,6 +8,7 @@ class Menu extends Component {
   state = {
     menu: [],
     message: "",
+    orderItems: "",
   };
 
   async componentDidMount() {
@@ -20,11 +21,13 @@ class Menu extends Component {
     let result = await Axios.post("/orders", {
       id: id,
     });
-    this.setState({ message: { id: id, message: result.data.message } });
+    this.setState({ message: { id: id, message: result.data.message }, orderItems: result.data.order.order_items });
   };
 
   render() {
     let menu;
+    let cartTab = <p id="cart-tab">({this.state.orderItems.length}) Cart</p>
+
     menu = this.state.menu.map((product) => {
       return (
         <Grid.Row
@@ -56,6 +59,7 @@ class Menu extends Component {
 
     return (
       <Container>
+        {cartTab}
         {message}
         <h1>Menu</h1>
         <Grid celled>{menu}</Grid>
