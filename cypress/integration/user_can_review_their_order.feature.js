@@ -11,7 +11,7 @@ describe("Visitor can see their order", () => {
   it("sucessfully", () => {
     cy.visit("http://localhost:3001/");
     cy.get("#order-1").within(() => {
-      cy.get("#order-title").should("contain", " ?");
+      cy.get("#order-title").should("contain", "Your order:");
       cy.get("#order-description").should("contain", "?");
       
     });
