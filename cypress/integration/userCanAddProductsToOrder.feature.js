@@ -12,8 +12,8 @@ describe("User can add products", () => {
       response: "fixture:create_order.json",
     });
     cy.visit("/");
-    });
-  })
+  });
+  
 
   describe('to new order', () => {  
     it("Button is visible", () => {
@@ -37,13 +37,13 @@ describe("User can add products", () => {
     })    
   })
 
-  describe('to existing order', () => {
-    beforeEach(() => {
-      cy.route({
-        method: "PUT",
-        url: "http://localhost:3000/api/v1/orders/1",
-        response: "fixture:update_order.json"
-      })
-    })
-  })
-});
+  // describe('to existing order', () => {
+  //   beforeEach(() => {
+  //     cy.route({
+  //       method: "PUT",
+  //       url: "http://localhost:3000/api/v1/orders/1",
+  //       response: "fixture:update_order.json"
+  //     })
+  //   })
+  // })
+})
