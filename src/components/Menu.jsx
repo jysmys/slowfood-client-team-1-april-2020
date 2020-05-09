@@ -9,6 +9,7 @@ class Menu extends Component {
     menu: [],
     message: "",
     orderItems: "",
+    orderId: "",
   };
 
   async componentDidMount() {
@@ -18,15 +19,20 @@ class Menu extends Component {
 
   addToOrder = async (event) => {
     let id = event.target.parentElement.dataset.id;
-    let result = await Axios.post("/orders", {
-      id: id,
+    let result =
+      this.state.orderId === ""
+        ? await Axios.post("/orders", { id: id })
+        : await Axios.put(`/orders/${this.state.orderId}`, { id: id });
+    this.setState({
+      message: result.data.message,
+      orderItems: result.data.order.order_items,
+      orderId: result.data.order.id,
     });
-    this.setState({ message: { id: id, message: result.data.message }, orderItems: result.data.order.order_items });
   };
 
   render() {
     let menu;
-    let cartTab = <p id="cart-tab">({this.state.orderItems.length}) Cart</p>
+    let cartTab = <p id="cart-tab">({this.state.orderItems.length}) Cart</p>;
 
     menu = this.state.menu.map((product) => {
       return (
@@ -54,7 +60,7 @@ class Menu extends Component {
     });
     let message;
     if (this.state.message) {
-      message = <p id="success-message">{this.state.message.message}</p>;
+      message = <p id="success-message">{this.state.message}</p>;
     }
 
     return (
