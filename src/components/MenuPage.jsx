@@ -43,7 +43,7 @@ const MenuPage = ({ menu, message, addToOrder }) => {
     <Container id="menu-container">
       {showMessage}
       <h1>Menu</h1>
-      <Grid celled id='menu-grid'>{showMenu}</Grid>
+      <Grid id='menu-grid'>{showMenu}</Grid>
     </Container>
   );
 };

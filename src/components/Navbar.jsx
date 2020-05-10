@@ -13,7 +13,7 @@ export default class Navbar extends Component {
     activeItem: "home",
     menu: [],
     message: "",
-    orderItems: "",
+    orderItems: [],
     orderId: "",
   };
 
@@ -72,6 +72,7 @@ export default class Navbar extends Component {
             Menu
           </Menu.Item>
           <Menu.Item
+            position='right'
             name="cart"
             id="cart-tab"
             active={activeItem === "cart"}

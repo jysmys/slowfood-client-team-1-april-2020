@@ -18,6 +18,7 @@ class OrderPage extends Component {
     let totalPrice = 0
     order = this.state.orders.map((order_item) => {
       totalPrice += order_item.price
+      debugger
       return (  
         <Table.Row key={order_item.product_id} id={"order-item-" + order_item.product_id}>
           <Table.Cell id="product-title">{order_item.title}</Table.Cell>
