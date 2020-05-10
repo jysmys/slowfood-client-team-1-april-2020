@@ -7,6 +7,7 @@ describe("Visitor can see their order", () => {
       response: "fixture:orders.json",
     });
     cy.visit("http://localhost:3001/");
+    cy.get('#cart-tab').click()
   });
 
   it("sucessfully", () => {  
