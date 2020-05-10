@@ -1,0 +1,14 @@
+{
+  "message": "The product was added to your order",
+  "order": {
+    "order_items": [{
+      "product_id": 1
+      },
+      {
+      "product_id": 2
+      }
+    ],
+    "id": 1
+  }
+
+}

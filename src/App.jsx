@@ -1,14 +1,13 @@
 import React from "react";
 import Menu from "./components/Menu";
-import Order from "./components/Order";
+import { Container, Header } from "semantic-ui-react";
 
 const App = () => {
   return (
-    <>
-      <h1>Turtle - Food fast</h1>
+    <Container>
+      <Header as="h1">Turtle - Food fast</Header>
       <Menu />
-      <Order />
-    </>
+    </Container>
   );
 };
 
