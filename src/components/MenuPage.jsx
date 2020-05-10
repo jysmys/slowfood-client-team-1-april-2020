@@ -64,7 +64,7 @@ class MenuPage extends Component {
     }
 
     return (
-      <Container>
+      <Container id='menu-container'>
         {cartTab}
         {message}
         <h1>Menu</h1>

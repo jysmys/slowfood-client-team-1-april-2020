@@ -12,8 +12,8 @@ export default class Navbar extends Component {
     const { activeItem } = this.state;
     return (
       <Container>
-        <Header id='header' as="h1">Turtle<br/>
-         <span id='subhead'>Food...Fast</span></Header>
+        <Header id='header' as="h1">Turtle<img src={logo} alt='logo'/></Header>
+         <div id='subhead'>Food...Fast</div>
         <Menu stackable  id='menu' >
         <Menu.Item><img src={logo} alt='logo'/></Menu.Item>
           <Menu.Item>Home</Menu.Item>
