@@ -4,6 +4,7 @@ import Axios from "axios";
 import { getMenu } from "../modules/requestProducts";
 import MenuPage from "./MenuPage";
 import OrderPage from "./OrderPage";
+import HomePage from "./HomePage";
 import "../css/navbar.css";
 import logo from "../images/logo.png";
 
@@ -89,7 +90,8 @@ export default class Navbar extends Component {
           />
         )}
         {activeItem === "cart" && <OrderPage />}
-      </>
+        {activeItem === "home" && <HomePage />}
+      </Container>
     );
   }
 }
