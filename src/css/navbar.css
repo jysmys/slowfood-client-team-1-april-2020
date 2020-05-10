@@ -1,0 +1,10 @@
+@import url("https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap");
+
+#header {
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+}
+
+#menu {
+  font-family: 'Courgette', cursive;
+}

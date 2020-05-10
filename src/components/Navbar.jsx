@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import { Container, Header, Menu } from "semantic-ui-react";
 import MenuPage from "./MenuPage";
 import OrderPage from "./OrderPage";
+import '../css/navbar.css';
+import logo from '../images/logo.png';
 
 export default class Navbar extends Component {
   state = {};
@@ -10,8 +12,10 @@ export default class Navbar extends Component {
     const { activeItem } = this.state;
     return (
       <Container>
-        <Header as="h1">Turtle - Food fast</Header>
-        <Menu stackable>
+        <Header id='header' as="h1">Turtle<br/>
+         <span id='subhead'>Food...Fast</span></Header>
+        <Menu stackable  id='menu' >
+        <Menu.Item><img src={logo} alt='logo'/></Menu.Item>
           <Menu.Item>Home</Menu.Item>
           <Menu.Item
             name="menu"
