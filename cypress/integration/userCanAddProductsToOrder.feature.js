@@ -12,6 +12,7 @@ describe("User can add products", () => {
       response: "fixture:create_order.json",
     });
     cy.visit("/");
+    cy.get('#menu-tab').click()
   });
 
   describe("to new order", () => {
