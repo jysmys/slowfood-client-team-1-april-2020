@@ -43,7 +43,7 @@ export default class Navbar extends Component {
   render() {
     const { activeItem } = this.state;
     return (
-      <>
+      <Container>
         <Header id="header" as="h1">
           Turtle
           <img src={logo} alt="logo" />
@@ -91,7 +91,9 @@ export default class Navbar extends Component {
         )}
         {activeItem === "cart" && <OrderPage />}
         {activeItem === "home" && <HomePage />}
+      
       </Container>
+     
     );
   }
 }

@@ -21,11 +21,40 @@
   background-color: #649d66;
   font-size: large;
 }
+
 body {
   background-color: #ffecc7;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  font-size: 20px; 
+  color: #06623b;
 }
 
 #menu-container {
   font-family: 'Courgette', cursive;
   color: #06623b;
+}
+
+#cart-tab {
+  float: right;
+}
+
+button#add-to-order {
+  background-color: #649d66;
+  font-family: 'Courgette', cursive;
+}
+
+#menu-grid {
+border-style: none;
+}
+
+#order-display {
+  padding-left: 30px;
+  font-family: 'Courgette', cursive;
+  color: #06623b;
+
+ 
 }

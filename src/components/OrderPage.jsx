@@ -27,7 +27,7 @@ class OrderPage extends Component {
     });
     
     return (
-      <div>
+      <div id='order-display'>
         {order}
         <p id="total-price">Total Price: {totalPrice} </p>
       </div>
