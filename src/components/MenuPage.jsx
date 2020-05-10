@@ -28,6 +28,7 @@ class MenuPage extends Component {
       orderItems: result.data.order.order_items,
       orderId: result.data.order.id,
     });
+    this.props.updateItemCount(this.state.orderItems.length);
   };
 
   render() {
