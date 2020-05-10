@@ -1,15 +1,11 @@
 import React from "react";
-import Menu from "./components/Menu";
-import { Container, Header } from "semantic-ui-react";
-import OrderPage from "./components/OrderPage";
+// import MenuPage from "./components/MenuPage";
+// import OrderPage from "./components/OrderPage";
+import Navbar from "./components/Navbar";
 
 const App = () => {
   return (
-    <Container>
-      <Header as="h1">Turtle - Food fast</Header>
-      <Menu />
-      <OrderPage />
-    </Container>
+<Navbar />
   );
 };
 

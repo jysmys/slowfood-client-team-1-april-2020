@@ -4,7 +4,7 @@ import { getMenu } from "../modules/requestProducts";
 import { Component } from "react";
 import Axios from "axios";
 
-class Menu extends Component {
+class MenuPage extends Component {
   state = {
     menu: [],
     message: "",
@@ -74,4 +74,4 @@ class Menu extends Component {
   }
 }
 
-export default Menu;
+export default MenuPage;
