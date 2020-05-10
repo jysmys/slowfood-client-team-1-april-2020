@@ -9,8 +9,8 @@ const MenuPage = ({ menu, message, addToOrder }) => {
 
   let showMenu = menu.map((product) => {
     return (
+      <>
       <Container id='menu-container'>
-        {cartTab}
         {message}
         <h1>Menu</h1>
         <Grid celled>{menu}</Grid>
@@ -35,8 +35,9 @@ const MenuPage = ({ menu, message, addToOrder }) => {
           </Button>
         </Grid.Column>
       </Grid.Row>
+      </>
     );
-  })
+  });
 
   return (
     <Container>
