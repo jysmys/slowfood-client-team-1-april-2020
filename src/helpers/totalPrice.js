@@ -1,9 +1,0 @@
-
- function totalPrice() {
-
-  return (
-   
-   
-  )
-}
-
