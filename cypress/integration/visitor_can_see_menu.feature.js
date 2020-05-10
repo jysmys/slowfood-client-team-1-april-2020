@@ -9,7 +9,7 @@ describe("Visitor can see menu", () => {
   });
 
   it("sucessfully", () => {
-    cy.visit("http://localhost:3001/");
+    cy.visit("/");
     cy.get("#product-1").within(() => {
       cy.get("#product-title").should("contain", "pizza");
       cy.get("#product-description").should("contain", "best pizza in town");
