@@ -39,6 +39,7 @@ export default class Navbar extends Component {
       orderItemsCount: productsAmount,
       orderId: result.data.order.id,
     });
+    debugger
   };
 
   render() {
