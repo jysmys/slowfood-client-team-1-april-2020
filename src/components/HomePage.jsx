@@ -1,6 +1,7 @@
 import React from "react";
 import logo from "../images/logo.png";
 import { Grid } from "semantic-ui-react";
+import "../css/navbar.css";
 
 export default function HomePage() {
   return (
@@ -12,8 +13,8 @@ export default function HomePage() {
         <h5>Open: 10.00am - 10.30pm </h5>
       </Grid.Row>
       <Grid.Row centered id="ContactInfo">
-        <p>
-          Phone: 0707 - 707070 <br /> Mail: turtlefood@mail.com <br /> Adress:
+        <p id='restaurant-info'>
+          Phone: 0707 - 707070 <br /> Email: turtlefood@mail.com <br /> Address:
           7070 Sunnyside Road <br />
         </p>
       </Grid.Row>

@@ -50,10 +50,11 @@ export default class Navbar extends Component {
         </Header>
         <div id="subhead">Food...Fast</div>
         <Menu stackable id="menu">
-          <Menu.Item>
+          <Menu.Item key='logo'>
             <img src={logo} alt="logo" />
           </Menu.Item>
           <Menu.Item
+            key='home'
             name="home"
             id="home-tab"
             active={activeItem === "home"}
@@ -64,6 +65,7 @@ export default class Navbar extends Component {
             Home
           </Menu.Item>
           <Menu.Item
+            key='menu'
             name="menu"
             id="menu-tab"
             active={activeItem === "menu"}
@@ -72,6 +74,7 @@ export default class Navbar extends Component {
             Menu
           </Menu.Item>
           <Menu.Item
+            key='cart'
             position='right'
             name="cart"
             id="cart-tab"

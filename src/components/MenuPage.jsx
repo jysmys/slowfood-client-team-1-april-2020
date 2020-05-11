@@ -1,5 +1,6 @@
 import React from "react";
 import { Grid, Button, Container } from "semantic-ui-react";
+import "../css/navbar.css";
 
 const MenuPage = ({ menu, message, addToOrder }) => {
   let showMessage;

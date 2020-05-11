@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Table } from "semantic-ui-react";
 import { getOrder } from '../modules/requestOrder';
+import "../css/navbar.css";
 
 
 class OrderPage extends Component {
@@ -19,11 +20,13 @@ class OrderPage extends Component {
     order = this.state.orders.map((order_item) => {
       totalPrice += order_item.price
       debugger
-      return (  
+      return (
+        <Table padded id='order-table'>
         <Table.Row key={order_item.product_id} id={"order-item-" + order_item.product_id}>
           <Table.Cell id="product-title">{order_item.title}</Table.Cell>
           <Table.Cell id="product-price">$ {order_item.price}</Table.Cell>
         </Table.Row>
+        </Table>  
       );
     });
     
