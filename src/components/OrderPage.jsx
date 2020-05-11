@@ -11,19 +11,21 @@ class OrderPage extends Component {
 
   async componentDidMount() {
     let result = await getOrder();
-    this.setState({ orders: result.data.orders.order_items });
+    this.setState({ orders: result.data.order.products });
   }
 
   render() {
     let order
     let totalPrice = 0
-    order = this.state.orders.map((order_item) => {
-      totalPrice += order_item.price
+    order = this.state.orders.map((products) => {
+      totalPrice += products.price
+    
+
       return (
         
-        <Grid.Row key={order_item.product_id} id={"order-item-" + order_item.product_id}>
-          <Grid.Column  width={3} id="product-title">{order_item.title}</Grid.Column>
-          <Grid.Column  width={3} id="product-price">$  {order_item.price}</Grid.Column>
+        <Grid.Row key={products.product_id} id={"order-item-"+products.product_id}>
+          <Grid.Column  width={3} id="product-title">{products.title}</Grid.Column>
+          <Grid.Column  width={3} id="product-price">$  {products.price}</Grid.Column>
         </Grid.Row>
           
       );

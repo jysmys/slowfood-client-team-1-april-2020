@@ -1,24 +1,31 @@
 {
-  "orders": 
+  "order": 
     {
       "id": 1,
 
-      "order_items": [
+      "products": [
         {
           "product_id": 1,
+          "amount": 1,
           "title": "pizza",
-          "price": 10
+          "price": 10,
+          "total": 10
         },
         {
           "product_id": 2,
+          "amount": 2,
           "title": "hamburger",
-          "price": 6
+          "price": 6,
+          "total": 12
         },
         {
           "product_id": 3,
+          "amount": 3,
           "title": "kebab",
-          "price": 7
+          "price": 7,
+          "total": 21
         }
-  ]
+  ],
+        "order_total": 43
 }
 }
