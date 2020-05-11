@@ -14,6 +14,7 @@ export default class Navbar extends Component {
     menu: [],
     message: "",
     orderItems: [],
+    orderItemsCount: 0,
     orderId: "",
   };
 
@@ -31,10 +32,12 @@ export default class Navbar extends Component {
       this.state.orderId === ""
         ? await Axios.post("/orders", { product_id: id })
         : await Axios.put(`/orders/${this.state.orderId}`, { product_id: id });
+    let productsAmount = result.data.order.products.map(product => product['amount']).reduce((a, b) =>  a + b, 0)
     this.setState({
       message: result.data.message,
-      orderItems: result.data.order.order_items,
-      orderId: result.data.order.order_id,
+      orderItems: result.data.order.products,
+      orderItemsCount: productsAmount,
+      orderId: result.data.order.id,
     });
   };
 
@@ -81,7 +84,7 @@ export default class Navbar extends Component {
               this.setState({ activeItem: "cart" });
             }}
           >
-            Cart ({this.state.orderItems.length})
+            Cart ({this.state.orderItemsCount})
           </Menu.Item>
         </Menu>
         {activeItem === "menu" && (
