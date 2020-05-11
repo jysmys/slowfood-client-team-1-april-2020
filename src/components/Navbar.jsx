@@ -32,14 +32,15 @@ export default class Navbar extends Component {
       this.state.orderId === ""
         ? await Axios.post("/orders", { product_id: id })
         : await Axios.put(`/orders/${this.state.orderId}`, { product_id: id });
-    let productsAmount = result.data.order.products.map(product => product['amount']).reduce((a, b) =>  a + b, 0)
+    let productsAmount = result.data.order.products
+      .map((product) => product["amount"])
+      .reduce((a, b) => a + b, 0);
     this.setState({
       message: result.data.message,
       orderItems: result.data.order.products,
       orderItemsCount: productsAmount,
       orderId: result.data.order.id,
     });
-    debugger
   };
 
   render() {
