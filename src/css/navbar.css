@@ -1,0 +1,79 @@
+@import url("https://fonts.googleapis.com/css?family=Courgette|Lobster&display=swap");
+
+#header {
+  text-align: center;
+  padding-top: 30px;
+  font-family: 'Lobster', cursive;
+  font-size: 50px;
+  color: #06623b;
+}
+ #subhead {
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  font-size: 30px; 
+  color: #06623b;
+
+ }
+
+#menu {
+  font-family: 'Courgette', cursive;
+  color: #06623b;
+  background-color: #649d66;
+  font-size: large;
+  margin-bottom: 40px;
+}
+
+body {
+  background-color: #ffecc7;
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  font-size: 20px; 
+  color: #06623b;
+}
+p#restaurant-info {
+    text-align: center;
+    font-family: 'Courgette', cursive;
+    font-size: 16px; 
+    color: #06623b;
+}
+h5 {
+  text-align: center;
+    font-family: 'Courgette', cursive;
+}
+
+#menu-container {
+  font-family: 'Courgette', cursive;
+  color: #06623b;
+  width: 70%;
+}
+
+#cart-tab {
+  float: right;
+}
+
+button#add-to-order {
+  background-color: #649d66;
+  font-family: 'Courgette', cursive;
+}
+
+#menu-grid {
+border-style: none;
+}
+
+#order-display {
+  text-align: center;
+  font-family: 'Courgette', cursive;
+  color: #06623b;
+}
+#order-grid{
+  text-align: center;
+  background-color: #ffecc7;
+}
+
+#success-message {
+  padding-top: 20px;
+  text-align: center;
+}
