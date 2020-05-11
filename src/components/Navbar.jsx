@@ -29,10 +29,8 @@ export default class Navbar extends Component {
     let id = event.target.parentElement.parentElement.dataset.id;
     let result =
       this.state.orderId === ""
-        ? await Axios.post("/orders", { params: { product_id: id } })
-        : await Axios.put(`/orders/${this.state.orderId}`, {
-            params: { product_id: id },
-          });
+        ? await Axios.post("/orders", { product_id: id })
+        : await Axios.put(`/orders/${this.state.orderId}`, { product_id: id });
     this.setState({
       message: result.data.message,
       orderItems: result.data.order.order_items,
@@ -50,11 +48,11 @@ export default class Navbar extends Component {
         </Header>
         <div id="subhead">Food...Fast</div>
         <Menu stackable id="menu">
-          <Menu.Item key='logo'>
+          <Menu.Item key="logo">
             <img src={logo} alt="logo" />
           </Menu.Item>
           <Menu.Item
-            key='home'
+            key="home"
             name="home"
             id="home-tab"
             active={activeItem === "home"}
@@ -65,7 +63,7 @@ export default class Navbar extends Component {
             Home
           </Menu.Item>
           <Menu.Item
-            key='menu'
+            key="menu"
             name="menu"
             id="menu-tab"
             active={activeItem === "menu"}
@@ -74,8 +72,8 @@ export default class Navbar extends Component {
             Menu
           </Menu.Item>
           <Menu.Item
-            key='cart'
-            position='right'
+            key="cart"
+            position="right"
             name="cart"
             id="cart-tab"
             active={activeItem === "cart"}
@@ -95,9 +93,7 @@ export default class Navbar extends Component {
         )}
         {activeItem === "cart" && <OrderPage />}
         {activeItem === "home" && <HomePage />}
-      
       </Container>
-     
     );
   }
 }
