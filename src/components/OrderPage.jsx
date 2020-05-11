@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Table } from "semantic-ui-react";
+import { Grid } from "semantic-ui-react";
 import { getOrder } from '../modules/requestOrder';
 import "../css/navbar.css";
 
@@ -21,19 +21,20 @@ class OrderPage extends Component {
       totalPrice += order_item.price
       debugger
       return (
-        <Table padded id='order-table'>
-        <Table.Row key={order_item.product_id} id={"order-item-" + order_item.product_id}>
-          <Table.Cell id="product-title">{order_item.title}</Table.Cell>
-          <Table.Cell id="product-price">$ {order_item.price}</Table.Cell>
-        </Table.Row>
-        </Table>  
+        
+        <Grid.Row key={order_item.product_id} id={"order-item-" + order_item.product_id}>
+          <Grid.Column  width={3} id="product-title">{order_item.title}</Grid.Column>
+          <Grid.Column  width={3} id="product-price">$  {order_item.price}</Grid.Column>
+        </Grid.Row>
+          
       );
     });
     
     return (
       <div id='order-display'>
-        {order}
-        <p id="total-price">Total Price: {totalPrice} </p>
+        <h1>Your Order:</h1><br/>
+        <Grid centered id='order-grid'>{order}</Grid><br/> 
+        <h5 id="total-price">Total Price: $ {totalPrice} </h5>
       </div>
     );
   }

@@ -20,6 +20,7 @@
   color: #06623b;
   background-color: #649d66;
   font-size: large;
+  margin-bottom: 40px;
 }
 
 body {
@@ -46,6 +47,7 @@ h5 {
 #menu-container {
   font-family: 'Courgette', cursive;
   color: #06623b;
+  width: 70%;
 }
 
 #cart-tab {
@@ -62,11 +64,11 @@ border-style: none;
 }
 
 #order-display {
-  padding-left: 200px;
+  text-align: center;
   font-family: 'Courgette', cursive;
   color: #06623b;
 }
-#order-table{
+#order-grid{
   text-align: center;
   background-color: #ffecc7;
 }
