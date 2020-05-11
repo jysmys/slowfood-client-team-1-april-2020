@@ -1,11 +1,13 @@
 {
   "message": "The product was added to your order",
   "order": {
-    "order_items": [{
-      "product_id": 1
+    "id": 1,
+    "products": [{
+      "amount": 1,
+      "title": "pizza",
+      "price": 10
       }
     ],
-    "id": 1
+    "order_total": 10
   }
-
 }
