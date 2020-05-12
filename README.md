@@ -38,7 +38,7 @@ Open [http://localhost:3001](http://localhost:3001) to view it in the browser.
 ## Acknowledgements:<br>
 Built with the guidance of the Craft Academy documentation, Reactjs.org, react.semantic-ui.com, Stackoverflow and turtles everywhere. 
 
-## Improvments
+## Improvements
     - More user management functions
     - Register
     - Update account, etc
