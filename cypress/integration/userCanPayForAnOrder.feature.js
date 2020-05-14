@@ -16,7 +16,7 @@ describe("User can pay for her order", () => {
       url: "http://localhost:3000/api/v1/order/1",
       response: "fixture.order.json",
     });
-    cy.visit("http://localhost:3000");
+    cy.visit("http://localhost:3001");
     cy.get("#product-2").within(() => {
       cy.get("button").contains("Add to order").click();
     });
@@ -27,6 +27,12 @@ describe("User can pay for her order", () => {
   });
 
   it("user can make a payment for her order", () => {
+    cy.route({
+      method: "PUT",
+      url: "http://localhost:3000/api/v1/",
+      body: { activity: finalize },
+      response: "fixture.order.json",
+    });
     cy.get("button").contains("confirm").click();
     cy.get("payment-form").should("exist");
     cy.wait(1000);

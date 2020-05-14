@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Grid, Button } from "semantic-ui-react";
 import { getOrder } from "../modules/requestOrder";
+import PaymentForm from "./PaymentForm";
 import "../css/navbar.css";
 
 class OrderPage extends Component {
@@ -49,7 +50,10 @@ class OrderPage extends Component {
         </Button>
         {this.state.showPaymentForm && (
           <div id="payment-form">
-            <PaymentForm />
+            <PaymentForm
+              orderDetails={this.state.orderDetails}
+              finalizeOrder={this.finalizeOrder.bind(this)}
+            />
           </div>
         )}
       </div>

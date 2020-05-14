@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Container, Header, Menu } from "semantic-ui-react";
 import Axios from "axios";
+
 import { getMenu } from "../modules/requestProducts";
 import MenuPage from "./MenuPage";
 import OrderPage from "./OrderPage";
@@ -42,6 +43,8 @@ export default class Navbar extends Component {
       orderId: result.data.order.id,
     });
   };
+
+
 
   render() {
     const { activeItem } = this.state;
