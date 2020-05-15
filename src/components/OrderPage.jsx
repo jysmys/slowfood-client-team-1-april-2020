@@ -6,9 +6,9 @@ const OrderPage = (props) => {
   let order;
   let showOrder;
   // debugger;
-  order = props.orderItems.map((item) => {
+  order = props.orderItems.map((item, index) => {
     return (
-      <Grid.Row key={item.product_id} id={"order-item-" + item.product_id}>
+      <Grid.Row key={index} id={"order-item-" + index}>
         <Grid.Column textAlign="right" width={3} id="product-amount">
           {item.amount}
         </Grid.Column>
@@ -38,7 +38,7 @@ const OrderPage = (props) => {
         </Grid>
         <br />
         <h3 id="total-price">Total Price: $ {props.orderPrice} </h3>
-        <Button id="confirm-order" onClick={props.confirmOrder}>
+        <Button id="confirm-order" onClick={props.osnButtonConfirmOrder}>
           Confirm order
         </Button>
       </div>

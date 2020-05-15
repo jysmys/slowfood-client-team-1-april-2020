@@ -43,8 +43,18 @@ export default class Navbar extends Component {
       orderPrice: result.data.order.order_total,
       orderTotal: result.data.order.total,
     });
+    // debugger;
   };
 
+  finalizedOrder = async (message) => {
+    let orderTotal = this.state.orderItems.order_total;
+    this.setState({
+      message: { id: 0, message: message },
+      orderTotal: orderTotal,
+      orderItems: [],
+      showPaymentForm: false,
+    });
+  };
   render() {
     const {
       activeItem,
@@ -109,7 +119,7 @@ export default class Navbar extends Component {
         )}
         {activeItem === "cart" && (
           <OrderPage
-            confirmOrder={() => {
+            onButtonConfirmOrder={() => {
               this.setState({ showPaymentForm: true });
             }}
             orderItems={orderItems}
@@ -118,11 +128,11 @@ export default class Navbar extends Component {
           />
         )}
         {activeItem === "home" && <HomePage />}
-        {this.state.showPaymentForm && (
+        {showPaymentForm && (
           <div id="payment-form">
             <PaymentForm
-              orderDetails={this.state.orderDetails}
-              // finalizeOrder={this.finalizeOrder.bind(this)}
+              orderItems={orderItems}
+              finalizeOrder={this.finalizeOrder(this)}
             />
           </div>
         )}

@@ -2,12 +2,13 @@
   "message": "The product was added to your order",
   "order": {
     "id": 1,
-    "products": [{
-      "amount": 2,
-      "title": "pizza",
-      "price": 10
+    "order_total": 20,
+    "products": [
+      {
+        "amount": 2,
+        "title": "pizza",
+        "price": 10
       }
-    ],
-    "order_total": 20
+    ]
   }
 }

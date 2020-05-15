@@ -46,10 +46,6 @@ describe("User can add products", () => {
         url: "http://localhost:3000/api/v1/orders/1",
         response: "fixture:update_order.json",
       });
-      cy.get("div#product-1").within(() => {
-        cy.get("button#add-to-order").click();
-      });
-      cy.get("#cart-tab").should("contain", "1");
     });
     it("User gets a success message", () => {
       cy.get("#success-message").contains(
