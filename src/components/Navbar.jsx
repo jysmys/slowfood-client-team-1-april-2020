@@ -8,6 +8,7 @@ import OrderPage from "./OrderPage";
 import HomePage from "./HomePage";
 import "../css/navbar.css";
 import logo from "../images/logo.png";
+import PaymentForm from "./PaymentForm";
 
 export default class Navbar extends Component {
   state = {
@@ -15,8 +16,10 @@ export default class Navbar extends Component {
     menu: [],
     message: "",
     orderItems: [],
-    orderItemsCount: 0,
     orderId: "",
+    orderPrice: 0,
+    orderTotal: 0,
+    showPaymentForm: false,
   };
 
   renderMenu = async () => {
@@ -33,21 +36,26 @@ export default class Navbar extends Component {
       this.state.orderId === ""
         ? await Axios.post("/orders", { product_id: id })
         : await Axios.put(`/orders/${this.state.orderId}`, { product_id: id });
-    let productsAmount = result.data.order.products
-      .map((product) => product["amount"])
-      .reduce((a, b) => a + b, 0);
     this.setState({
       message: result.data.message,
       orderItems: result.data.order.products,
-      orderItemsCount: productsAmount,
       orderId: result.data.order.id,
+      orderPrice: result.data.order.order_total,
+      orderTotal: result.data.order.total,
     });
   };
 
-
-
   render() {
-    const { activeItem } = this.state;
+    const {
+      activeItem,
+      showPaymentForm,
+      menu,
+      message,
+      orderItems,
+      orderPrice,
+      orderTotal,
+    } = this.state;
+
     return (
       <Container>
         <Header id="header" as="h1">
@@ -89,18 +97,35 @@ export default class Navbar extends Component {
               this.setState({ activeItem: "cart" });
             }}
           >
-            Cart ({this.state.orderItemsCount})
+            Cart ({orderTotal})
           </Menu.Item>
         </Menu>
         {activeItem === "menu" && (
           <MenuPage
-            menu={this.state.menu}
-            message={this.state.message}
+            menu={menu}
+            message={message}
             addToOrder={this.addToOrder}
           />
         )}
-        {activeItem === "cart" && <OrderPage />}
+        {activeItem === "cart" && (
+          <OrderPage
+            confirmOrder={() => {
+              this.setState({ showPaymentForm: true });
+            }}
+            orderItems={orderItems}
+            orderPrice={orderPrice}
+            orderTotal={orderTotal}
+          />
+        )}
         {activeItem === "home" && <HomePage />}
+        {this.state.showPaymentForm && (
+          <div id="payment-form">
+            <PaymentForm
+              orderDetails={this.state.orderDetails}
+              // finalizeOrder={this.finalizeOrder.bind(this)}
+            />
+          </div>
+        )}
       </Container>
     );
   }

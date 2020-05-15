@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Navbar from "./components/Navbar";
 import axios from "axios";
 import { FacebookProvider, LoginButton } from "react-facebook";
+import "./css/App.css";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -21,7 +22,6 @@ const App = () => {
       };
       sessionStorage.setItem("auth", JSON.stringify(tokenHeaders));
       setAuthenticated(true);
-      debugger;
     } catch (error) {}
   };
   return (
@@ -29,7 +29,7 @@ const App = () => {
       <FacebookProvider appId="292980025036755">
         {authenticated && <p>Welcome {sessionStorage.storage} </p>}
         <LoginButton scope="email" onCompleted={handleResponse}>
-          <span>Login Facebook</span>
+          <span id="facebook-button">Login Facebook</span>
         </LoginButton>
       </FacebookProvider>
       <Navbar />

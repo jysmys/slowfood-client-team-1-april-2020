@@ -3,20 +3,19 @@
 #header {
   text-align: center;
   padding-top: 30px;
-  font-family: 'Lobster', cursive;
+  font-family: "Lobster", cursive;
   font-size: 50px;
   color: #06623b;
 }
- #subhead {
+#subhead {
   text-align: center;
-  font-family: 'Courgette', cursive;
-  font-size: 30px; 
+  font-family: "Courgette", cursive;
+  font-size: 30px;
   color: #06623b;
-
- }
+}
 
 #menu {
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
   color: #06623b;
   background-color: #649d66;
   font-size: large;
@@ -29,23 +28,24 @@ body {
 
 h1 {
   text-align: center;
-  font-family: 'Courgette', cursive;
-  font-size: 20px; 
+  font-family: "Courgette", cursive;
+  font-size: 20px;
   color: #06623b;
 }
-p#restaurant-info {
-    text-align: center;
-    font-family: 'Courgette', cursive;
-    font-size: 16px; 
-    color: #06623b;
+p#restaurant-info,
+#noting-in-order {
+  text-align: center;
+  font-family: "Courgette", cursive;
+  font-size: 16px;
+  color: #06623b;
 }
 h5 {
   text-align: center;
-    font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
 }
 
 #menu-container {
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
   color: #06623b;
   width: 70%;
 }
@@ -54,21 +54,22 @@ h5 {
   float: right;
 }
 
-button#add-to-order {
+button#add-to-order,
+button#confirm-order {
   background-color: #649d66;
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
 }
 
 #menu-grid {
-border-style: none;
+  border-style: none;
 }
 
 #order-display {
   text-align: center;
-  font-family: 'Courgette', cursive;
+  font-family: "Courgette", cursive;
   color: #06623b;
 }
-#order-grid{
+#order-grid {
   text-align: center;
   background-color: #ffecc7;
 }

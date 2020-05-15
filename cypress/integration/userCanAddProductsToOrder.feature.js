@@ -12,7 +12,7 @@ describe("User can add products", () => {
       response: "fixture:create_order.json",
     });
     cy.visit("/");
-    cy.get('#menu-tab').click()
+    cy.get("#menu-tab").click();
   });
 
   describe("to new order", () => {
@@ -58,7 +58,7 @@ describe("User can add products", () => {
     });
 
     it("The product count in cart updates", () => {
-      cy.get("div#product-1").within(() => {
+      cy.get("div#product-2").within(() => {
         cy.get("button#add-to-order").click();
       });
       cy.get("#cart-tab").should("contain", "2");
