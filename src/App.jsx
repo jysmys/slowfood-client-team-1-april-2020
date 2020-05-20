@@ -1,8 +1,9 @@
 import React, { useState } from "react";
-import Navbar from "./components/Navbar";
+// import Navbar from "./components/Navbar";
 import axios from "axios";
 import { FacebookProvider, LoginButton } from "react-facebook";
 import "./css/App.css";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 const App = () => {
   const [authenticated, setAuthenticated] = useState(false);
@@ -32,7 +33,8 @@ const App = () => {
           <span id="facebook-button">Login Facebook</span>
         </LoginButton>
       </FacebookProvider>
-      <Navbar />
+      {/* <Navbar /> */}
+      
     </>
   );
 };
