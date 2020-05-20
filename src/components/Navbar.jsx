@@ -52,7 +52,6 @@ export default class Navbar extends Component {
       message: { id: 0, message: message },
       orderTotal: orderTotal,
       orderItems: [],
-      showPaymentForm: false,
     });
   };
   render() {
@@ -132,7 +131,7 @@ export default class Navbar extends Component {
           <div id="payment-form">
             <PaymentForm
               orderItems={orderItems}
-              finalizeOrder={this.finalizeOrder(this)}
+              finalizeOrder={this.finalizeOrder}
             />
           </div>
         )}

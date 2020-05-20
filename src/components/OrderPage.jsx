@@ -38,7 +38,7 @@ const OrderPage = (props) => {
         </Grid>
         <br />
         <h3 id="total-price">Total Price: $ {props.orderPrice} </h3>
-        <Button id="confirm-order" onClick={props.osnButtonConfirmOrder}>
+        <Button id="confirm-order" onClick={props.onButtonConfirmOrder}>
           Confirm order
         </Button>
       </div>

@@ -9,7 +9,7 @@ import { Button, Label } from "semantic-ui-react";
 import Axios from "axios";
 
 class PaymentForm extends Component {
-  async payWithStripe() {
+  payWithStripe = async () => {
     await this.props.stripe.createToken().then((response) => {
       if (response.token) {
         try {
@@ -19,7 +19,7 @@ class PaymentForm extends Component {
         }
       }
     });
-  }
+  };
   async performPayment(token) {
     let orderResponse = await Axios.put(
       `http://localhost:3000/api/orders/${this.props.orderDetails.id}`,
@@ -42,7 +42,7 @@ class PaymentForm extends Component {
         <CardExpiryElement />
         <Label>CVC</Label>
         <CardCVCElement />
-        <Button onClick={this.payWithStripe.bind(this)}>Submit</Button>
+        <Button onClick={this.payWithStripe}>Submit</Button>
       </>
     );
   }

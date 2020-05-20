@@ -1,0 +1,16 @@
+{
+  "message": "The product was added to your order",
+  "order": {
+    "finalized": false,
+    "id": 1,
+    "order_total": 10,
+    "products": [
+      {
+        "amount": 1,
+        "title": "pizza",
+        "price": 100
+      }
+    ],
+    "total": 1
+  }
+}

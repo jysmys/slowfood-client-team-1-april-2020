@@ -10,7 +10,7 @@ import { StripeProvider } from "react-stripe-elements";
 axios.defaults.baseURL = "http://localhost:3000/api/v1";
 
 ReactDOM.render(
-  <StripeProvider stripe="pk_test_ScTlKvcm1zmjvc68RJN3ME1E00RUevmnpL">
+  <StripeProvider apiKey="pk_test_ScTlKvcm1zmjvc68RJN3ME1E00RUevmnpL">
     <App />
   </StripeProvider>,
   document.getElementById("root")
